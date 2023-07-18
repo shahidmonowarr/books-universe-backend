@@ -1,20 +1,36 @@
 const httpStatus = require("http-status");
-const { ApiError } = require("../../src/errors/apiError");
-const User = require("../models/user.model");
-const { createToken, verifyToken } = require("../../src/helpers/jwtHelpers");
-const config = require("../../src/config");
 const bcrypt = require("bcrypt");
+const User = require("../user/user.model");
+const config = require("../../../config");
+const { createToken, verifyToken } = require("../../../helpers/jwtHelpers");
+const { ApiError } = require("../../../errors/apiError");
 
-exports.loginUserService = async (payload) => {
-  const { email: userEmail, password } = payload;
+exports.signUpService = async (payload) => {
+  const isExist = await User.isExist(payload.email);
 
-  // Existency Check
-  const isExist = await User.isExist(userEmail);
-  if (!isExist) {
-    throw new ApiError(httpStatus.NOT_FOUND, "User does not exist");
+  if (isExist) {
+    throw new Error("Email already exist");
   }
 
-  // Password Check
+  const user = await User.create(payload);
+  if (!user) {
+    throw new Error("Sign up failed");
+  }
+
+  const result = await User.findById(user._id);
+  return result;
+};
+
+exports.signInService = async (payload) => {
+  const { email: userEmail, password } = payload;
+
+  //  check if email is exist
+  const isExist = await User.isExist(userEmail);
+  if (!isExist) {
+    throw new ApiError(httpStatus.NOT_FOUND, "Email is incorrect");
+  }
+
+  // check if password is matched
   if (
     isExist.password &&
     !(await User.isPasswordMatched(password, isExist.password))
@@ -23,16 +39,16 @@ exports.loginUserService = async (payload) => {
   }
 
   // Create Access Token
-  const { _id, id, role, email } = isExist;
+  const { _id, email } = isExist;
   const accessToken = createToken(
-    { _id, id, role, email },
+    { _id, email },
     config.jwt.secret,
     config.jwt.expires_in
   );
 
   // Create Refresh Token
   const refreshToken = createToken(
-    { _id, id, role, email },
+    { _id, email },
     config.jwt.refresh_secret,
     config.jwt.refresh_expires_in
   );
@@ -74,34 +90,4 @@ exports.refreshTokenService = async (token) => {
   return {
     accessToken: newAccessToken,
   };
-};
-
-exports.changePasswordService = async (payload, user) => {
-  const { oldPassword, newPassword } = payload;
-  const { email } = user;
-  const isUserExist = await User.isExist(email);
-
-  if (!isUserExist) {
-    throw new ApiError(httpStatus.NOT_FOUND, "User does not exist");
-  }
-
-  if (
-    isUserExist.password &&
-    !(await User.isPasswordMatched(oldPassword, isUserExist.password))
-  ) {
-    throw new ApiError(httpStatus.UNAUTHORIZED, "Password is incorrect");
-  }
-
-  // hass
-  const newHashedPassword = await bcrypt.hash(
-    newPassword,
-    Number(config.bcrypt_slot_round)
-  );
-
-  const updatedData = {
-    password: newHashedPassword,
-    passwordChangedAt: new Date(),
-  };
-
-  await User.findOneAndUpdate({ email }, updatedData);
 };

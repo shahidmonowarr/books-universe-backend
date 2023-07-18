@@ -1,7 +1,7 @@
 const httpStatus = require("http-status");
-const { ApiError } = require("../errors/apiError");
-const { verifyToken } = require("../helpers/jwtHelpers");
-const config = require("../config");
+const { ApiError } = require("../../errors/apiError");
+const config = require("../../config");
+const { verifyToken } = require("../../helpers/jwtHelpers");
 
 exports.auth =
   (...requiredRoles) =>

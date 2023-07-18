@@ -1,29 +1,17 @@
 const { Schema, model } = require("mongoose");
-const { role } = require("../constants/user.constant");
 const bcrypt = require("bcrypt");
-const config = require("../../src/config");
+const config = require("../../../config");
+const { status } = require("./user.constant");
 
 const userSchema = new Schema(
   {
-    name: {
+    firstName: {
       type: String,
       required: true,
       trim: true,
     },
-    role: {
+    lastName: {
       type: String,
-      enum: role,
-      required: true,
-    },
-    id: {
-      type: String,
-      required: true,
-      unique: true,
-    },
-    phoneNumber: {
-      type: String,
-      required: true,
-      unique: true,
     },
     email: {
       type: String,
@@ -35,13 +23,25 @@ const userSchema = new Schema(
       required: true,
       select: 0,
     },
-    passwordChangedAt: {
-      type: Date,
-    },
-    address: {
-      type: String,
-      required: true,
-    },
+    wishlist: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Book",
+      },
+    ],
+    readlist: [
+      {
+        bookId: {
+          type: Schema.Types.ObjectId,
+          ref: "Book",
+        },
+        status: {
+          type: String,
+          enum: ["Reading", "Completed"],
+          default: "Reading",
+        },
+      },
+    ],
   },
   {
     timestamps: true,
@@ -51,15 +51,12 @@ const userSchema = new Schema(
   }
 );
 
-// Existency Check
+// Check if email is exist
 userSchema.statics.isExist = async function (email) {
-  return await User.findOne(
-    { email },
-    { email: 1, password: 1, role: 1, id: 1, _id: 1 }
-  );
+  return await User.findOne({ email }, { email: 1, password: 1, _id: 1 });
 };
 
-// Password Match
+// Check if password is matched
 userSchema.statics.isPasswordMatched = async function (
   givenPassword,
   savedPassword
@@ -67,7 +64,7 @@ userSchema.statics.isPasswordMatched = async function (
   return await bcrypt.compare(givenPassword, savedPassword);
 };
 
-// Password Encrypt
+// Check if password is changed after token issued
 userSchema.pre("save", async function (next) {
   this.password = await bcrypt.hash(
     this.password,

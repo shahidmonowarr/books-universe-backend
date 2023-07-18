@@ -1,10 +1,10 @@
 const { ZodError } = require("zod");
-const { ApiError } = require("../errors/apiError");
-const config = require("../config");
-const { handleCastError } = require("../errors/handleCastError");
-const { handleValidationError } = require("../errors/handleValidationError");
-const { handleZodError } = require("../errors/handleZodError");
-const { errorLogger } = require("../utilities/logger");
+const config = require("../../config");
+const { handleCastError } = require("../../errors/handleCastError");
+const { handleValidationError } = require("../../errors/handleValidationError");
+const { handleZodError } = require("../../errors/handleZodError");
+const { errorLogger } = require("../../utilities/logger");
+const { ApiError } = require("../../errors/apiError");
 
 exports.globalError = (error, req, res, next) => {
   let statusCode = 400;

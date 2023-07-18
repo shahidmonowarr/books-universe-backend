@@ -1,4 +1,4 @@
-exports.sendRes = (res, data) => {
+exports.sendResponse = (res, data) => {
   const resData = {
     statusCode: data.statusCode,
     success: data.success,

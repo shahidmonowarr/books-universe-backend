@@ -1,14 +1,25 @@
-const { sendRes } = require("../../src/utilities/sendRes");
-const { tryCatch } = require("../../src/utilities/tryCatch");
+const httpStatus = require("http-status");
+const { tryCatch } = require("../../../utilities/tryCatch");
 const {
   loginUserService,
   refreshTokenService,
   changePasswordService,
-} = require("../services/auth.services");
-const config = require("../../src/config");
+} = require("./auth.services");
+const { sendResponse } = require("../../../utilities/sendResponse");
 
-exports.loginUser = tryCatch(async (req, res) => {
-  const result = await loginUserService(req.body);
+exports.signUp = tryCatch(async (req, res) => {
+  const result = await signUpService(req.body);
+
+  sendResponse(res, {
+    statusCode: 200,
+    success: true,
+    message: "User created successfully",
+    data: result,
+  });
+});
+
+exports.login = tryCatch(async (req, res) => {
+  const result = await loginService(req.body);
   const { refreshToken, ...others } = result;
 
   // Set Refresh Token in Cookies
@@ -18,7 +29,7 @@ exports.loginUser = tryCatch(async (req, res) => {
   };
   res.cookie("refreshToken", refreshToken, cookieOptions);
 
-  sendRes(res, {
+  sendResponse(res, {
     statusCode: 200,
     success: true,
     message: "User login successfully",
@@ -40,17 +51,7 @@ exports.refreshToken = tryCatch(async (req, res) => {
   sendRes(res, {
     statusCode: 200,
     success: true,
-    message: "User login successfully",
+    message: "Token refreshed successfully",
     data: result,
-  });
-});
-
-exports.changePassword = tryCatch(async (req, res) => {
-  const { ...passwordData } = req.body;
-  await changePasswordService(passwordData, req.user);
-  sendRes(res, {
-    statusCode: 200,
-    success: true,
-    message: "Password changed successfully !",
   });
 });

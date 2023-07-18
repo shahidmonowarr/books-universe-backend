@@ -3,9 +3,9 @@ const app = express();
 const cors = require("cors");
 const httpStatus = require("http-status");
 const cookieParser = require("cookie-parser");
-const routes = require("../app/routes/index");
-const { globalError } = require("./middleware/globalError");
-const { sendRes } = require("./utilities/sendRes");
+const { sendResponse } = require("./utilities/sendResponse");
+const { globalError } = require("./app/middleware/globalError");
+const routes = require("./app/routes/index");
 
 // Middleware
 app.use(cors());
@@ -15,7 +15,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // Testing API
 app.get("/", (req, res) => {
-  sendRes(res, {
+  sendResponse(res, {
     statusCode: httpStatus.OK,
     success: true,
     message: "+++ App Running Successfully +++",

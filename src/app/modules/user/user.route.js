@@ -1,19 +1,16 @@
 const express = require("express");
-const { reqValidate } = require("../../src/middleware/reqValidate");
-const {
-  createUserZod,
-  updateUserZod,
-} = require("../validation/user.validation");
+const { validateRequest } = require("../../middleware/validateRequest");
+const { createUserZod, updateUserZod } = require("./user.validation");
 const {
   createUser,
   getAllUsers,
   getSingleUser,
   updateUser,
   deleteUser,
-} = require("../controllers/user.controller");
+} = require("./user.controller");
 const router = express.Router();
 
-router.route("/").post(reqValidate(createUserZod), createUser).get(
+router.route("/").post(validateRequest(createUserZod), createUser).get(
   //   auth(ENUM_USER_ROLE.ADMIN, ENUM_USER_ROLE.SELLER, ENUM_USER_ROLE.BUYER),
   getAllUsers
 );
@@ -25,7 +22,7 @@ router
     getSingleUser
   )
   .patch(
-    reqValidate(updateUserZod),
+    validateRequest(updateUserZod),
     // auth(ENUM_USER_ROLE.SELLER),
     updateUser
   )
