@@ -10,17 +10,13 @@ exports.auth =
       // Get Authorization Token
       const token = req.headers.authorization;
       if (!token) {
-        throw new ApiError(httpStatus.UNAUTHORIZED, "You are not authorized");
+        throw new ApiError(httpStatus.UNAUTHORIZED, "Unauthorized");
       }
 
-      // Varify Token
+      // Verify Token check if it is valid
       let verifiedUser = null;
       verifiedUser = verifyToken(token, config.jwt.secret);
       req.user = verifiedUser;
-
-      if (requiredRoles.length && !requiredRoles.includes(verifiedUser.role)) {
-        throw new ApiError(httpStatus.FORBIDDEN, "Forbidden");
-      }
       next();
     } catch (error) {
       next(error);
