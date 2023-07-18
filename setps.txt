@@ -1,0 +1,12 @@
+Initialize packeage.json
+--------------------------
+        : npm init
+
+install dependency
+--------------------------
+        :yarn add express cors dotenv mongoose nodemon colors bcrypt body-parser concurrently cookie-parser jsonwebtoken validator
+
+
+create config
+
+create winston
