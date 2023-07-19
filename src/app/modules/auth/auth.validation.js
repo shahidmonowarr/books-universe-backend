@@ -1,31 +1,37 @@
 const { z } = require("zod");
 
-exports.loginUserZod = z.object({
+exports.signUpZod = z.object({
   body: z.object({
+    firstName: z.string({
+      required_error: "First Name is required",
+    }),
+    lastName: z.string({
+      required_error: "Last Name is required",
+    }),
     email: z.string({
-      required_error: "Zod: Email is required",
+      required_error: "Email is required",
     }),
     password: z.string({
-      required_error: "Zod: Password is required",
+      required_error: "Password is required",
+    }),
+  }),
+});
+
+exports.loginZod = z.object({
+  body: z.object({
+    email: z.string({
+      required_error: "Email is required",
+    }),
+    password: z.string({
+      required_error: "Password is required",
     }),
   }),
 });
 
 exports.refreshTokenZod = z.object({
-  cookies: z.object({
-    refreshToken: z.string({
-      required_error: "Zod: Refresh Token is required",
-    }),
-  }),
-});
-
-exports.changePasswordZod = z.object({
   body: z.object({
-    oldPassword: z.string({
-      required_error: "Old password is required",
-    }),
-    newPassword: z.string({
-      required_error: "New password is required",
+    refreshToken: z.string({
+      required_error: "Refresh Token is required",
     }),
   }),
 });

@@ -1,5 +1,4 @@
 const httpStatus = require("http-status");
-const bcrypt = require("bcrypt");
 const User = require("../user/user.model");
 const config = require("../../../config");
 const { createToken, verifyToken } = require("../../../helpers/jwtHelpers");
@@ -21,11 +20,11 @@ exports.signUpService = async (payload) => {
   return result;
 };
 
-exports.signInService = async (payload) => {
-  const { email: userEmail, password } = payload;
+exports.loginService = async (payload) => {
+  const { email: authEmail, password } = payload;
 
   //  check if email is exist
-  const isExist = await User.isExist(userEmail);
+  const isExist = await User.isExist(authEmail);
   if (!isExist) {
     throw new ApiError(httpStatus.NOT_FOUND, "Email is incorrect");
   }

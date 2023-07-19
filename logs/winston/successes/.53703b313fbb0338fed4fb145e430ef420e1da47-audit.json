@@ -39,6 +39,11 @@
             "date": 1689707006519,
             "name": "C:\\level-2\\assignment-5-backend\\logs\\winston\\successes\\BU-2023-19-07-01-success.log",
             "hash": "6191725c3a91096926f2f3f7f6d9335129bbd015301810fbe332637e9ef01f03"
+        },
+        {
+            "date": 1689710571483,
+            "name": "C:\\level-2\\assignment-5-backend\\logs\\winston\\successes\\BU-2023-19-07-02-success.log",
+            "hash": "6a71be6e6dcaa364c8246de916a144afd946482caa05cc30985fc857052213ed"
         }
     ],
     "hashType": "sha256"

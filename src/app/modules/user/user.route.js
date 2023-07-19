@@ -1,34 +1,30 @@
 const express = require("express");
 const { validateRequest } = require("../../middleware/validateRequest");
-const { createUserZod, updateUserZod } = require("./user.validation");
+const { updateUserZod } = require("./user.validation");
 const {
-  createUser,
   getAllUsers,
   getSingleUser,
   updateUser,
   deleteUser,
+  getUserProfile,
+  addToWishlist,
+  removeFromWishlist,
+  addToReadList,
+  markAsCompleted,
 } = require("./user.controller");
+const { auth } = require("../../middleware/auth");
 const router = express.Router();
 
-router.route("/").post(validateRequest(createUserZod), createUser).get(
-  //   auth(ENUM_USER_ROLE.ADMIN, ENUM_USER_ROLE.SELLER, ENUM_USER_ROLE.BUYER),
-  getAllUsers
-);
+router.route("/profile").get(auth(), getUserProfile);
+router.route("/").get(getAllUsers);
+router.route("/:id").get(getSingleUser);
+router.route("/id").patch(validateRequest(updateUserZod), updateUser);
+router.route("/:id").delete(deleteUser);
 
-router
-  .route("/:id")
-  .get(
-    // auth(ENUM_USER_ROLE.ADMIN, ENUM_USER_ROLE.SELLER, ENUM_USER_ROLE.BUYER),
-    getSingleUser
-  )
-  .patch(
-    validateRequest(updateUserZod),
-    // auth(ENUM_USER_ROLE.SELLER),
-    updateUser
-  )
-  .delete(
-    //   auth(ENUM_USER_ROLE.SELLER),
-    deleteUser
-  );
+router.route("/add-wishlist").patch(auth(), addToWishlist);
+router.route("/remove-wishlist").patch(auth(), removeFromWishlist);
+
+router.route("/add-readlist").patch(auth(), addToReadList);
+router.route("make-completed").patch(auth(), markAsCompleted);
 
 module.exports = router;

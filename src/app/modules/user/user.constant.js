@@ -1,9 +1,4 @@
-exports.userFilterableFields = [
-  "firstName",
-  "lastName",
-  "email",
-  "phoneNumber",
-];
+exports.userFilterableFields = ["firstName", "lastName", "email"];
 
 exports.userSearchableFields = ["firstName", "lastName", "email"];
 

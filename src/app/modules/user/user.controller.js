@@ -1,22 +1,28 @@
 const httpStatus = require("http-status");
 const { tryCatch } = require("../../../utilities/tryCatch");
 const {
-  createUserService,
+  getUserProfileService,
   getAllUsersService,
   getSingleUserService,
   updateUserService,
   deleteUserService,
+  addToWishlistService,
+  removeFromWishlistService,
+  addToReadListService,
+  markAsCompletedService,
 } = require("./user.services");
 const { sendResponse } = require("../../../utilities/sendResponse");
 const { pick } = require("../../../utilities/pick");
 const { userFilterableFields } = require("./user.constant");
+const { paginationFields } = require("../../../constants/pagination");
 
-exports.createUser = tryCatch(async (req, res) => {
-  const result = await createUserService(req.body);
+exports.getUserProfile = tryCatch(async (req, res) => {
+  const { _id } = req.user;
+  const result = await getUserProfileService(_id);
   sendResponse(res, {
     statusCode: httpStatus.OK,
     success: true,
-    message: "User created successfully",
+    message: "User retrieved successfully",
     data: result,
   });
 });
@@ -64,6 +70,58 @@ exports.deleteUser = tryCatch(async (req, res) => {
     statusCode: httpStatus.OK,
     success: true,
     message: "User delete successfully",
+    data: result,
+  });
+});
+
+exports.addToWishlist = tryCatch(async (req, res) => {
+  const { _id } = req.user;
+  const { bookId } = req.body;
+  const result = await addToWishlistService(_id, bookId);
+
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: "Book added to wishlist successfully",
+    data: result,
+  });
+});
+
+exports.removeFromWishlist = tryCatch(async (req, res) => {
+  const { _id } = req.user;
+  const { bookId } = req.body;
+  const result = await removeFromWishlistService(_id, bookId);
+
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: "Book removed from wishlist successfully",
+    data: result,
+  });
+});
+
+exports.addToReadList = tryCatch(async (req, res) => {
+  const { _id } = req.user;
+  const { bookId } = req.body;
+  const result = await addToReadListService(_id, bookId);
+
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: "Book added to read list successfully",
+    data: result,
+  });
+});
+
+exports.markAsCompleted = tryCatch(async (req, res) => {
+  const { _id } = req.user;
+  const { bookId } = req.body;
+  const result = await markAsCompletedService(_id, bookId);
+
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: "Book marked as completed successfully",
     data: result,
   });
 });

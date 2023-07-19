@@ -1,9 +1,8 @@
-const httpStatus = require("http-status");
 const { tryCatch } = require("../../../utilities/tryCatch");
 const {
-  loginUserService,
+  signUpService,
+  loginService,
   refreshTokenService,
-  changePasswordService,
 } = require("./auth.services");
 const { sendResponse } = require("../../../utilities/sendResponse");
 
@@ -13,7 +12,7 @@ exports.signUp = tryCatch(async (req, res) => {
   sendResponse(res, {
     statusCode: 200,
     success: true,
-    message: "User created successfully",
+    message: "Signup successfully",
     data: result,
   });
 });

@@ -39,6 +39,11 @@
             "date": 1689707006538,
             "name": "C:\\level-2\\assignment-5-backend\\logs\\winston\\errors\\njme-01 - 19.07.2023-error.log",
             "hash": "11d72a46e1c39db2a41934592b772b6ff53c484065d783717a5675d5b796afe0"
+        },
+        {
+            "date": 1689710571498,
+            "name": "C:\\level-2\\assignment-5-backend\\logs\\winston\\errors\\njme-02 - 19.07.2023-error.log",
+            "hash": "714f2c5dd9f68892f68c11c2a075ed6844b8f671f133eed5fc9ca8e2e7e15c8e"
         }
     ],
     "hashType": "sha256"
