@@ -5,6 +5,7 @@ const {
   refreshTokenService,
 } = require("./auth.services");
 const { sendResponse } = require("../../../utilities/sendResponse");
+const config = require("../../../config");
 
 exports.signUp = tryCatch(async (req, res) => {
   const result = await signUpService(req.body);

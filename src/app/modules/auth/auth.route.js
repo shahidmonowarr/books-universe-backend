@@ -5,7 +5,7 @@ const { validateRequest } = require("../../middleware/validateRequest");
 
 const router = express.Router();
 
-router.route("/sign-up").post(validateRequest(signUpZod), signUp);
+router.route("/signup").post(validateRequest(signUpZod), signUp);
 router.route("/login").post(validateRequest(loginZod), login);
 router
   .route("/refresh-token")
