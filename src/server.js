@@ -7,7 +7,7 @@ process.on("uncaughtException", (error) => {
   process.exit(1);
 });
 
-// DB Connection
+// Connect to DB
 DBConnect();
 
 process.on("SIGTERM", () => {

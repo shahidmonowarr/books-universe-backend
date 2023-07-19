@@ -18,12 +18,12 @@ app.get("/", (req, res) => {
   sendResponse(res, {
     statusCode: httpStatus.OK,
     success: true,
-    message: "+++ App Running Successfully +++",
+    message: "Running Successfully Welcome to Books Universe API",
     data: null,
   });
 });
 
-// Data Route
+// Route
 app.use("/api/v1", routes);
 
 // Handle Error || Close App

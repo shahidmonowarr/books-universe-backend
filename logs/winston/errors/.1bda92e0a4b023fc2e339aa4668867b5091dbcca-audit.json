@@ -59,6 +59,16 @@
             "date": 1689742988604,
             "name": "C:\\level-2\\assignment-5-backend\\logs\\winston\\errors\\njme-11 - 19.07.2023-error.log",
             "hash": "049cd3a87b2c4dd4225e5c0435bd9110b002a5db770dfbdd63333c2fa0fedd86"
+        },
+        {
+            "date": 1689752888728,
+            "name": "C:\\level-2\\assignment-5-backend\\logs\\winston\\errors\\njme-13 - 19.07.2023-error.log",
+            "hash": "a55bb64f1701f7273dd001c04b0d485059bee895aa0b4b8fd96e2898d18b6b0f"
+        },
+        {
+            "date": 1689753646493,
+            "name": "C:\\level-2\\assignment-5-backend\\logs\\winston\\errors\\njme-14 - 19.07.2023-error.log",
+            "hash": "0b1684ce3f37f3629f421743618a25f3e286daf31abf94edec4f6562eafb4b34"
         }
     ],
     "hashType": "sha256"

@@ -59,6 +59,16 @@
             "date": 1689742988581,
             "name": "C:\\level-2\\assignment-5-backend\\logs\\winston\\successes\\BU-2023-19-07-11-success.log",
             "hash": "405aa2c9babf37fc7d326a3d1c6b89d196cc9d0710a88ce2180b8cf66e56c199"
+        },
+        {
+            "date": 1689752888646,
+            "name": "C:\\level-2\\assignment-5-backend\\logs\\winston\\successes\\BU-2023-19-07-13-success.log",
+            "hash": "b7d85312e6b7b9c0f3d645917f4a3073805c593e5e610ec55a5a9f55cc98369c"
+        },
+        {
+            "date": 1689753809748,
+            "name": "C:\\level-2\\assignment-5-backend\\logs\\winston\\successes\\BU-2023-19-07-14-success.log",
+            "hash": "ead29731f955b827310743773f38b12b58852c896cd029b2be6343421bc6ede7"
         }
     ],
     "hashType": "sha256"

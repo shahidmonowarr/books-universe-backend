@@ -1,3 +1,4 @@
+const httpStatus = require("http-status");
 const { ApiError } = require("../../../errors/apiError");
 const { calculatePagination } = require("../../../helpers/paginationHelpers");
 const { bookSearchableFields, bookPopulate } = require("./book.constant");
