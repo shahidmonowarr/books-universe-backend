@@ -1,4 +1,4 @@
-const { Schema } = require("mongoose");
+const { Schema, model } = require("mongoose");
 
 const bookSchema = new Schema(
   {
@@ -19,7 +19,7 @@ const bookSchema = new Schema(
       trim: true,
     },
     publishedDate: {
-      type: string,
+      type: String,
       required: true,
       trim: true,
     },

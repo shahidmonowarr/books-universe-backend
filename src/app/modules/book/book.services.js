@@ -1,7 +1,6 @@
 const { ApiError } = require("../../../errors/apiError");
 const { calculatePagination } = require("../../../helpers/paginationHelpers");
-const { findById } = require("../user/user.model");
-const { bookSearchableFields } = require("./book.constant");
+const { bookSearchableFields, bookPopulate } = require("./book.constant");
 const Book = require("./book.model");
 
 exports.createBookService = async (payload, id) => {
@@ -142,12 +141,12 @@ exports.bookReviewService = async (userId, id, payload) => {
 
   const reviews = {
     review: payload.review,
-    reviewer: userId,
+    reviewerId: userId,
   };
 
   const result = await Book.findByIdAndUpdate(
     id,
-    { $push: { reviews } },
+    { $push: { reviews: reviews } },
     { new: true }
   );
 

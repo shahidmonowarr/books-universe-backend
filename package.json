@@ -1,5 +1,5 @@
 {
-  "name": "node_express_mongoose_boilerplate",
+  "name": "books-universe-backend",
   "version": "2.0.0",
   "description": "",
   "main": "src/server.js",
@@ -7,9 +7,10 @@
     "start": "node src/server",
     "dev": "nodemon src/server"
   },
+  "author": "Shahid",
+  "license": "MIT",
   "dependencies": {
     "bcrypt": "^5.1.0",
-    "colors": "^1.4.0",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
     "dotenv": "^16.3.1",
@@ -21,7 +22,5 @@
     "winston": "^3.10.0",
     "winston-daily-rotate-file": "^4.7.1",
     "zod": "^3.21.4"
-  },
-  "author": "Abu Shama",
-  "license": "MIT"
+  }
 }

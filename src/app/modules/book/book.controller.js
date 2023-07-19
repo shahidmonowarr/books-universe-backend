@@ -3,9 +3,17 @@ const { pick } = require("../../../utilities/pick");
 const { sendResponse } = require("../../../utilities/sendResponse");
 const { tryCatch } = require("../../../utilities/tryCatch");
 const { bookFilterableFields } = require("./book.constant");
+const {
+  createBookService,
+  getAllBooksService,
+  getSingleBookService,
+  updateBookService,
+  deleteBookService,
+  bookReviewService,
+} = require("./book.services");
 
 exports.createBook = tryCatch(async (req, res) => {
-  const { _id } = req.user;
+  const { _id } = req?.user;
   const result = await createBookService(req.body, _id);
 
   sendResponse(res, {
@@ -19,8 +27,8 @@ exports.createBook = tryCatch(async (req, res) => {
 exports.getAllBooks = tryCatch(async (req, res) => {
   const paginationOptions = pick(req.query, paginationFields);
   const filters = pick(req.query, bookFilterableFields);
-
   const result = await getAllBooksService(paginationOptions, filters);
+
   sendResponse(res, {
     statusCode: httpStatus.OK,
     success: true,
@@ -32,6 +40,7 @@ exports.getAllBooks = tryCatch(async (req, res) => {
 exports.getSingleBook = tryCatch(async (req, res) => {
   const { id } = req.params;
   const result = await getSingleBookService(id);
+
   sendResponse(res, {
     statusCode: httpStatus.OK,
     success: true,
@@ -43,8 +52,8 @@ exports.getSingleBook = tryCatch(async (req, res) => {
 exports.updateBook = tryCatch(async (req, res) => {
   const { id } = req.params;
   const { _id } = req?.user;
-  const updatedData = req.body;
-  const result = await updateBookService(id, updatedData, _id);
+  const result = await updateBookService(_id, id, req.body);
+
   sendResponse(res, {
     statusCode: httpStatus.OK,
     success: true,
@@ -57,6 +66,7 @@ exports.deleteBook = tryCatch(async (req, res) => {
   const { id } = req.params;
   const { _id } = req?.user;
   const result = await deleteBookService(id, _id);
+
   sendResponse(res, {
     statusCode: httpStatus.OK,
     success: true,
@@ -69,6 +79,7 @@ exports.bookReview = tryCatch(async (req, res) => {
   const { id } = req.params;
   const { _id } = req?.user;
   const result = await bookReviewService(id, _id, req.body);
+
   sendResponse(res, {
     statusCode: httpStatus.OK,
     success: true,

@@ -1,22 +1,15 @@
 const express = require("express");
 const { validateRequest } = require("../../middleware/validateRequest");
-const { createUserZod, updateUserZod } = require("./user.validation");
-const {
-  createUser,
-  getAllUsers,
-  getSingleUser,
-  updateUser,
-  deleteUser,
-} = require("./user.controller");
 const { auth } = require("../../middleware/auth");
-const { get } = require("mongoose");
 const {
   createBook,
+  getAllBooks,
   getSingleBook,
   updateBook,
   deleteBook,
   bookReview,
 } = require("./book.controller");
+const { createBookZod } = require("./book.validation");
 const router = express.Router();
 
 router.post("/", auth(), validateRequest(createBookZod), createBook);
