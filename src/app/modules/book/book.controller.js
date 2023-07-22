@@ -64,9 +64,9 @@ exports.updateBook = tryCatch(async (req, res) => {
 });
 
 exports.deleteBook = tryCatch(async (req, res) => {
-  const { id } = req.params;
   const { _id } = req?.user;
-  const result = await deleteBookService(id, _id);
+  const { id } = req.params;
+  const result = await deleteBookService(_id, id);
 
   sendResponse(res, {
     statusCode: httpStatus.OK,

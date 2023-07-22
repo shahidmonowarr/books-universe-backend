@@ -1,4 +1,5 @@
 node_modules
 .env
-logs/winston
+logs/winston/errors
+logs/winston/successes
 yarn.lock

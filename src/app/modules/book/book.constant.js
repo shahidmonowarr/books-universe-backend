@@ -1,6 +1,6 @@
 exports.bookSearchableFields = ["title", "author", "genre"];
 
-exports.bookFilterableFields = ["searchTerm", "genre", "publishedDate"];
+exports.bookFilterableFields = ["searchTerm", "genre", "publicationDate"];
 
 exports.bookPopulate = [
   "userId",

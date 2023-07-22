@@ -90,16 +90,16 @@ exports.updateBookService = async (userId, id, payload) => {
     throw new ApiError(httpStatus.NOT_FOUND, "Book not found");
   }
 
+  const isTitleExist = await Book.findOne({ title: payload.title });
+  if (book.title !== isTitleExist?.title && isTitleExist) {
+    throw new Error(`Book with title ${payload.title} already exist`);
+  }
+
   if (book.userId.valueOf() !== userId) {
     throw new ApiError(
       httpStatus.FORBIDDEN,
       "You are not allowed to update this book"
     );
-  }
-
-  const isTitleExist = await Book.findOne({ title: payload.title });
-  if (book.title !== isTitleExist?.title && isTitleExist) {
-    throw new Error(`Book with title ${payload.title} already exist`);
   }
 
   const result = await Book.findByIdAndUpdate(id, payload, {

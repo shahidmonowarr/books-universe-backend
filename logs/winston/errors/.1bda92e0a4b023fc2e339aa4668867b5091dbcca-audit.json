@@ -84,6 +84,46 @@
             "date": 1689790305415,
             "name": "C:\\level-2\\assignment-5-backend\\logs\\winston\\errors\\njme-00 - 20.07.2023-error.log",
             "hash": "72dcb42e0844053274eea6def475c244af99ce86c58d04480ae384bc194b8633"
+        },
+        {
+            "date": 1689828780420,
+            "name": "C:\\level-2\\assignment-5-backend\\logs\\winston\\errors\\njme-10 - 20.07.2023-error.log",
+            "hash": "492e65dee0ca2a7fe1d04495d153d415ccde328fbc1a3c77898aa1c6b005ce4f"
+        },
+        {
+            "date": 1689829234775,
+            "name": "C:\\level-2\\assignment-5-backend\\logs\\winston\\errors\\njme-11 - 20.07.2023-error.log",
+            "hash": "fd1fc09413d84d69bd32604d8254f2b7e150dfe95cd719a08c0c244f6ca6ef73"
+        },
+        {
+            "date": 1689836089734,
+            "name": "C:\\level-2\\assignment-5-backend\\logs\\winston\\errors\\njme-12 - 20.07.2023-error.log",
+            "hash": "73d66092fd8c01f501a02961b2969bf593f5cfc65d89729790714367e723944c"
+        },
+        {
+            "date": 1689837061887,
+            "name": "C:\\level-2\\assignment-5-backend\\logs\\winston\\errors\\njme-13 - 20.07.2023-error.log",
+            "hash": "3a609c83525c042e6cfbb9ba0e3e60d6c167fca934c9a80dd662cc0c6ecdac3f"
+        },
+        {
+            "date": 1689843357067,
+            "name": "C:\\level-2\\assignment-5-backend\\logs\\winston\\errors\\njme-14 - 20.07.2023-error.log",
+            "hash": "ddb1219f615b863fc75074a48239f4f759f1a820f1f0c26407821d0f1660d91c"
+        },
+        {
+            "date": 1689843605803,
+            "name": "C:\\level-2\\assignment-5-backend\\logs\\winston\\errors\\njme-15 - 20.07.2023-error.log",
+            "hash": "4b64a7f246a5446a8c5b53f16a5b1a6de2f530ee7c60a3c9f98f545c2a9256fe"
+        },
+        {
+            "date": 1689853681636,
+            "name": "C:\\level-2\\assignment-5-backend\\logs\\winston\\errors\\njme-17 - 20.07.2023-error.log",
+            "hash": "c4d0a68134d5a6aaf6ec3bc27e95c2cb3987e4e2fc343ef62cc0657fd4c4cdcd"
+        },
+        {
+            "date": 1690034719854,
+            "name": "C:\\level-2\\assignment-5-backend\\logs\\winston\\errors\\njme-20 - 22.07.2023-error.log",
+            "hash": "6cdc036d59409c088fad1bdbb96d93df06a72dcb925d8a7bd2254876e55644f9"
         }
     ],
     "hashType": "sha256"
