@@ -3,7 +3,6 @@ const config = require("../../config");
 const { handleCastError } = require("../../errors/handleCastError");
 const { handleValidationError } = require("../../errors/handleValidationError");
 const { handleZodError } = require("../../errors/handleZodError");
-const { errorLogger } = require("../../utilities/logger");
 const { ApiError } = require("../../errors/apiError");
 
 exports.globalError = (error, req, res, next) => {
@@ -14,7 +13,7 @@ exports.globalError = (error, req, res, next) => {
   // Dependency
   config.env === "development"
     ? console.log(`Global Error Handler ==`, error)
-    : errorLogger.error(`Global Error Handler ==`, error);
+    : console.log(`Global Error Handler ==`, error);
 
   // Check
   if (error?.name === "ValidationError") {
