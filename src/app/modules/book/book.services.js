@@ -136,7 +136,6 @@ exports.deleteBookService = async (userId, id) => {
 
 exports.bookReviewService = async (userId, id, payload) => {
   const book = await Book.findById(id);
-  console.log(book);
   if (!book) {
     throw new ApiError(httpStatus.NOT_FOUND, "Book not found");
   }

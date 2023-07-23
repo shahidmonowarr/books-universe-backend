@@ -159,6 +159,31 @@
             "date": 1690092896170,
             "name": "C:\\level-2\\assignment-5-backend\\logs\\winston\\errors\\njme-12 - 23.07.2023-error.log",
             "hash": "0321f8d6ed6a61eac73807846a8bec067bd1e0cbbd04afdae45aa18a70d12f4a"
+        },
+        {
+            "date": 1690102361216,
+            "name": "C:\\level-2\\assignment-5-backend\\logs\\winston\\errors\\njme-14 - 23.07.2023-error.log",
+            "hash": "814fd0d174800b37b5f092d4e2a2109e2864caa386330807ccf79e01599e80c5"
+        },
+        {
+            "date": 1690103924945,
+            "name": "C:\\level-2\\assignment-5-backend\\logs\\winston\\errors\\njme-15 - 23.07.2023-error.log",
+            "hash": "9ce6c400e6a6119bbb787694b9134c18ba2aaea53b07b987de885f614ec109fc"
+        },
+        {
+            "date": 1690107648495,
+            "name": "C:\\level-2\\assignment-5-backend\\logs\\winston\\errors\\njme-16 - 23.07.2023-error.log",
+            "hash": "c6f9030e47820bcabca6ed0ae88c8748cc0ebac02d14e5675087b3055d44ba38"
+        },
+        {
+            "date": 1690110366814,
+            "name": "C:\\level-2\\assignment-5-backend\\logs\\winston\\errors\\njme-17 - 23.07.2023-error.log",
+            "hash": "4f48b0f475e90a37dc440eb857c62daf611a39c6c9e1be985fa1aa7fecf70e46"
+        },
+        {
+            "date": 1690119845528,
+            "name": "C:\\level-2\\assignment-5-backend\\logs\\winston\\errors\\njme-19 - 23.07.2023-error.log",
+            "hash": "8da007780eeeb59a4badb718dba6e5bc709f9efdc8ff524b53e8917234b7c002"
         }
     ],
     "hashType": "sha256"

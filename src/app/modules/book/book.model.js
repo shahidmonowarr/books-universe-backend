@@ -23,7 +23,7 @@ const bookSchema = new Schema(
       required: true,
       trim: true,
     },
-    image_url: {
+    image_link: {
       type: String,
     },
     userId: {
