@@ -124,6 +124,41 @@
             "date": 1690034719854,
             "name": "C:\\level-2\\assignment-5-backend\\logs\\winston\\errors\\njme-20 - 22.07.2023-error.log",
             "hash": "6cdc036d59409c088fad1bdbb96d93df06a72dcb925d8a7bd2254876e55644f9"
+        },
+        {
+            "date": 1690038212122,
+            "name": "C:\\level-2\\assignment-5-backend\\logs\\winston\\errors\\njme-21 - 22.07.2023-error.log",
+            "hash": "2ade4215c925ad168d62ce1ac8fc5eccfb87b58719247c19e1cc7a13bcdf6d6c"
+        },
+        {
+            "date": 1690047443074,
+            "name": "C:\\level-2\\assignment-5-backend\\logs\\winston\\errors\\njme-23 - 22.07.2023-error.log",
+            "hash": "ebc7dfb6848d2db08d4fabf93c6e52c216f678630fa644f2965c44d42e05cc01"
+        },
+        {
+            "date": 1690048849459,
+            "name": "C:\\level-2\\assignment-5-backend\\logs\\winston\\errors\\njme-00 - 23.07.2023-error.log",
+            "hash": "26af142ab680ae65983f5d970c60181aaf2663d6948a4fdd18cd99a9a89473e7"
+        },
+        {
+            "date": 1690081243220,
+            "name": "C:\\level-2\\assignment-5-backend\\logs\\winston\\errors\\njme-09 - 23.07.2023-error.log",
+            "hash": "ef4e4118e01d822a85b6c6048a1f25ea34a66ce2f456345d9431ce13c8f60549"
+        },
+        {
+            "date": 1690085513158,
+            "name": "C:\\level-2\\assignment-5-backend\\logs\\winston\\errors\\njme-10 - 23.07.2023-error.log",
+            "hash": "1849d906c1512e4d1e119205aedb3d05edb618073fc86670b06a8b043df20363"
+        },
+        {
+            "date": 1690088921842,
+            "name": "C:\\level-2\\assignment-5-backend\\logs\\winston\\errors\\njme-11 - 23.07.2023-error.log",
+            "hash": "b3a391c697f6088813cc30d11b409d44f07127f4a783871787b4fc93cd4e2fdb"
+        },
+        {
+            "date": 1690092896170,
+            "name": "C:\\level-2\\assignment-5-backend\\logs\\winston\\errors\\njme-12 - 23.07.2023-error.log",
+            "hash": "0321f8d6ed6a61eac73807846a8bec067bd1e0cbbd04afdae45aa18a70d12f4a"
         }
     ],
     "hashType": "sha256"

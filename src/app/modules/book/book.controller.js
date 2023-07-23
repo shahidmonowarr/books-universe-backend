@@ -79,7 +79,7 @@ exports.deleteBook = tryCatch(async (req, res) => {
 exports.bookReview = tryCatch(async (req, res) => {
   const { id } = req.params;
   const { _id } = req?.user;
-  const result = await bookReviewService(id, _id, req.body);
+  const result = await bookReviewService(_id, id, req.body);
 
   sendResponse(res, {
     statusCode: httpStatus.OK,

@@ -210,7 +210,7 @@ exports.markAsCompletedService = async (id, payload) => {
     const result = await User.findByIdAndUpdate(
       id,
       {
-        readlist: [...restOfBooks, payload],
+        readlist: [payload, ...restOfBooks],
       },
       { new: true }
     ).populate("readlist");

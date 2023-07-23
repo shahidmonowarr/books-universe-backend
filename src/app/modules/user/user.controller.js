@@ -101,9 +101,8 @@ exports.removeFromWishlist = tryCatch(async (req, res) => {
 });
 
 exports.addToReadList = tryCatch(async (req, res) => {
-  const { _id } = req.user;
-  const { bookId } = req.body;
-  const result = await addToReadListService(_id, bookId);
+  const { _id } = req?.user;
+  const result = await addToReadListService(_id, req.body);
 
   sendResponse(res, {
     statusCode: httpStatus.OK,
@@ -114,9 +113,8 @@ exports.addToReadList = tryCatch(async (req, res) => {
 });
 
 exports.markAsCompleted = tryCatch(async (req, res) => {
-  const { _id } = req.user;
-  const { bookId } = req.body;
-  const result = await markAsCompletedService(_id, bookId);
+  const { _id } = req?.user;
+  const result = await markAsCompletedService(_id, req.body);
 
   sendResponse(res, {
     statusCode: httpStatus.OK,

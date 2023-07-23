@@ -25,6 +25,6 @@ router.route("/add-wishlist").patch(auth(), addToWishlist);
 router.route("/remove-wishlist").patch(auth(), removeFromWishlist);
 
 router.route("/add-readlist").patch(auth(), addToReadList);
-router.route("mark-finished").patch(auth(), markAsCompleted);
+router.route("/mark-finished").patch(auth(), markAsCompleted);
 
 module.exports = router;
