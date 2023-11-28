@@ -23,6 +23,9 @@ const bookSchema = new Schema(
       required: true,
       trim: true,
     },
+    pdf_link: {
+      type: String,
+    },
     image_link: {
       type: String,
     },

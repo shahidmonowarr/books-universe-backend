@@ -14,6 +14,7 @@ exports.createBookZod = z.object({
     publicationDate: z.string({
       required_error: "Publication Date is required",
     }),
+    pdf_link: z.string({}).optional(),
     image_url: z.string({}).optional(),
   }),
 });
